@@ -1,6 +1,6 @@
 ---
 extends: _layouts.category
-title: Configuration
+title: Configuration (in _categories)
 description: Posts related to configuring the Jigsaw blog starter template
 ---
 

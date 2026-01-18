@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => 'https://jordankellernet-jigsaw.test/',
     'production' => false,
-    'siteName' => 'Jordan-Keller.com',
+    'siteName' => 'Jordan Keller',
     'siteDescription' => 'Hey Jordan, remember to edit the config.php to give the site a sexy description. Sincereley, Jordan',
     'siteAuthor' => 'Jordan Keller',
     'pretty_urls' => true,

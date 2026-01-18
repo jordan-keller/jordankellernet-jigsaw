@@ -29,26 +29,64 @@
         <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
-            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
-                <div class="flex items-center">
-                    <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
-                        <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
+    <body x-data="{
+        theme: localStorage.getItem('theme') || 'default',
+        setTheme(value) {
+            this.theme = value;
+            document.documentElement.setAttribute('data-theme', value);
+            localStorage.setItem('theme', value);
+        }
+    }"
+    x-init="setTheme(theme)"
+    :data-theme="theme" class="flex flex-col justify-between min-h-screen bg-bg text-text leading-normal font-body">
+        <header class="flex items-center shadow bg-white/20 border-b h-24 py-4" role="banner">
+    <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+        <div class="flex items-center">
+            <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
+                <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
+                <h1 class="text-lg md:text-2xl text-link font-semibold hover:text-link-hover my-0">{{ $page->siteName }}</h1>
+            </a>
+        </div>
 
-                        <h1 class="text-lg md:text-2xl text-blue-800 font-semibold hover:text-blue-600 my-0">{{ $page->siteName }}</h1>
-                    </a>
-                </div>
-
-                <div id="vue-search" class="flex flex-1 justify-end items-center">
-                    @include('_components.search')
-
-                    @include('_nav.menu')
-
-                    @include('_nav.menu-toggle')
+        <div class="flex flex-1 justify-end items-center gap-4">
+            <!-- Theme Switcher Dropdown -->
+            <div class="relative" x-data="{ open: false }">
+                <button 
+                    @click="open = !open"
+                    @click.away="open = false"
+                    class="px-3 py-2 text-sm rounded hover:bg-gray-100 transition"
+                >
+                    Theme ▼
+                </button>
+                
+                <div 
+                    x-show="open"
+                    x-transition
+                    class="absolute right-0 mt-2 w-40 bg-white rounded shadow-lg border z-10"
+                >
+                    <button 
+                        @click="setTheme('default'); open = false"
+                        class="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                        :class="{ 'bg-gray-100': theme === 'default' }"
+                    >
+                        Default
+                    </button>
+                    <button 
+                        @click="setTheme('dark'); open = false"
+                        class="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                        :class="{ 'bg-gray-100': theme === 'dark' }"
+                    >
+                        Dark
+                    </button>
                 </div>
             </div>
-        </header>
+
+            @include('_components.search')
+            @include('_nav.menu')
+            @include('_nav.menu-toggle')
+        </div>
+    </div>
+</header>
 
         @include('_nav.menu-responsive')
 
@@ -56,7 +94,7 @@
             @yield('body')
         </main>
 
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+        <footer class="bg-bg text-center text-sm mt-12 py-4" role="contentinfo">
             <ul class="flex flex-col md:flex-row justify-center list-none">
                 <li class="md:mr-2">
                     &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> {{ date('Y') }}.
