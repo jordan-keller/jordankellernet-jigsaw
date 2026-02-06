@@ -1,16 +1,23 @@
 ---
 title: Contact
-description: Get in touch with us
+description: This is how to get ahold of me, Jordan Keller
 ---
 @extends('_layouts.main')
 
 @section('body')
 <h1>Contact</h1>
 
-<p class="mb-8">
-    Static sites are unable to handle form submissions. However, there are third-party services, like Tighten’s <a href="https://fieldgoal.io" title="FieldGoal">FieldGoal</a>, which can accept the form submission, email you the result, and redirect back to a thank you page.
-</p>
+<ul class="mb-8 ml-4 list-disc space-y-2">
+<li>Skeet at me on <a href="https://bsky.app/profile/jordan-keller.com" target="_blank" class="text-blue-500 hover:text-blue-700 underline">Bluesky</a></li>
+<li>Connect on <a href="https://www.linkedin.com/in/jordan-m-keller/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">LinkedIn</a></li>
+<li>Find me on <a href="https://github.com/jordan-keller" target="_blank" class="text-blue-500 hover:text-blue-700 underline">GitHub</a></li>
+<li>EXPERIENCE my album: <a href="https://www.theokaylakes.com" target="_blank" class="text-blue-500 hover:text-blue-700 underline">"Redshift" by The Okay Lakes</a><br>
+- (or just listen to it)</li>
+<li>Find me on YouTube</li>
+<li>Instagram</li>
 
+</ul>
+{{-- 
 <form action="/contact" class="mb-12">
     <div class="flex flex-wrap mb-6 -mx-3">
         <div class="w-full md:w-1/2 mb-6 md:mb-0 px-3">
@@ -66,5 +73,5 @@ description: Get in touch with us
             class="block bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold leading-snug tracking-wide uppercase shadow-sm rounded-lg cursor-pointer px-6 py-3"
         >
     </div>
-</form>
+</form> --}}
 @stop

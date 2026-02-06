@@ -26,7 +26,7 @@
     --font-heading: "Instrument Serif", sans-serif;
   }
 
-  [data-theme="dark"] {
+  [data-theme="a huge dweeb"] {
     --bg: #0b010e;
     --text: #87c987;
     --link: #86efac;
@@ -35,12 +35,33 @@
     --font-heading: "Pixelify Sans Variable", monospace;
   }
 
+  [data-theme="a pharmeteucial jingle writer"] {
+    --bg: #ffbb00;
+    --text: #060225;
+    --link: #d97706;
+    --link-hover: #b45309;
+    --font-body: "Courier", monospace;
+    --font-heading: "League Gothic", monospace;
+  }
+
+  [data-theme="a huge dweeb"] body {
+    box-shadow: inset 0 0 90px 40px rgba(20, 9, 173, 0.4);
+  }
+
+  [data-theme="a true professional"] body {
+    box-shadow: inset 0 0 90px 90px rgba(198, 196, 142, 0.4);
+  }
+
+  [data-theme="a pharmeteucial jingle writer"] body {
+    box-shadow: inset 0 0 90px 90px rgb(255, 237, 100);
+  }
+
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--text-main, currentcolor);
   }
 
   body {

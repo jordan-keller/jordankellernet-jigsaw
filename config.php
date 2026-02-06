@@ -61,4 +61,23 @@ return [
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
+
+    'themes' => [
+        'default' => [
+            'about_content' => 'about-default.md',
+            'about_image' => '/assets/img/about-default.png',
+        ],
+        'a true professional' => [
+            'about_content' => '/about/a-true-professional.md',
+            'about_image' => '/assets/img/a-true-professionalk.png',
+        ],
+        'a pharmaceutical jingle writer' => [
+            'about_content' => '/about/a-pharmaceutical-jingle-writer.md',
+            'about_image' => '/assets/img/a-pharmaceutical-jingle-writer.png',
+        ],
+        'a huge dweeb' => [
+            'about_content' => '/about/a-huge-dweeb.md',
+            'about_image' => '/assets/img/a-huge-dweeb.png',
+        ],
+    ],
 ];

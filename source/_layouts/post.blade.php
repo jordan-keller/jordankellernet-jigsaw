@@ -11,19 +11,20 @@
 
     <h1 class="leading-none mb-2">{{ $page->title }}</h1>
 
-    <p class="text-gray-700 text-xl md:mt-0">{{ $page->author }}  •  {{ date('F j, Y', $page->date) }}</p>
+    <p class="text-text text-md md:mt-0">{{ $page->author }}  /  {{ date('F j, Y', $page->date) }}</p>
 
     @if ($page->categories)
         @foreach ($page->categories as $i => $category)
             <a
                 href="{{ '/blog/categories/' . $category }}"
                 title="View posts in {{ $category }}"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded-sm mr-4 px-3 pt-px"
+                class="inline-block hover:bg-hover leading-loose tracking-wide uppercase text-xs font-semibold mr-4 px-3 pt-px"
+                style="background-color: var(--link); color: var(--bg);"
             >{{ $category }}</a>
         @endforeach
     @endif
 
-    <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
+    <div class="border-b border-link mb-10 pb-4" v-pre>
         @yield('content')
     </div>
 
